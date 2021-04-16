@@ -1,5 +1,7 @@
 //package Homework1git
 //CHECK FOR THIS EDIT!
+//oh thank christ
+
 import java.util.Scanner;
 
 public class DungeonGame {
