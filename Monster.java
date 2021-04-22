@@ -26,9 +26,13 @@ public class Monster {
     /* Type of this Monster */
     private String monsterType;
     
-    Random randMonster = new Random();
+    public String getMonsterType() {
+        return this.monsterType;
+    }
 
-    int monsterSelection = randMonster.nextInt(3);
+    public void setMonsterType(String monsterType) {
+        this.monsterType = monsterType;
+    }
     
     public Monster(String monsterType){
         if (this.monsterType.toLowerCase().equals("goblin")) {
