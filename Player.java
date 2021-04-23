@@ -22,6 +22,7 @@ public class Player {
 
     // Constructor for player class (Warrior or theif)
     public Player(String playerClass) {
+        this.playerClass = playerClass;
         this.gold = 0;
 
         if (this.playerClass.toLowerCase().equals("warrior")) {
