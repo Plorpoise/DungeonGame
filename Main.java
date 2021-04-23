@@ -3,11 +3,16 @@ public class Main {
     //sssss
     
     public static void main(String[] args) {
-        Monster monster = new Monster();
+        // Monster monster = new Monster();
         Player player = new Player("warrior");
 
-        Room room = new Room();
+        // Room room = new Room();
 
-        room.enter(player);
+        // room.enter(player);
+
+
+        DungeonMap map = new DungeonMap(10, 20, player);
+
+        map.print();
     }
 }

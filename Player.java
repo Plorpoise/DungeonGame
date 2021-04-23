@@ -15,6 +15,11 @@ public class Player {
     /* Modifer to loot obtained by this Player */
     private double lootModifier;
 
+    //row and column positions for the player
+    private int rowPos;
+
+    private int colPos;
+
     /* Hits the targeted Monster */
     public void attack(Monster target) {
         target.onHit(this.damage);
@@ -22,6 +27,8 @@ public class Player {
 
     // Constructor for player class (Warrior or theif)
     public Player(String playerClass) {
+        this.colPos = 0;
+        this.rowPos = 0;
         this.playerClass = playerClass;
         this.gold = 0;
 
@@ -100,5 +107,23 @@ public class Player {
     public void setGold(int gold){
         this.gold += gold;
     }
+
+    public int getRowPos() {
+        return rowPos;
+    }
+
+    public void setRowPos(int rowPos) {
+        this.rowPos = rowPos;
+    }
+
+    public int getColPos() {
+        return colPos;
+    }
+
+    public void setColPos(int colPos) {
+        this.colPos = colPos;
+    }
+
+    
         
 }

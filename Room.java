@@ -19,25 +19,32 @@ public class Room {
 	enters this Room. Includes combat resolution
 	and obtaining loot. */
     public void enter(Player player) {
-        this.visited = true;
-
-        Random rand = new Random();
-
-        //Checks to see if the player gets loot from the room, otherwise the player goes into combat.
-        if(rand.nextDouble() < lootChance){
-            if(rand.nextDouble() < .5){
-                player.setHealth(0, lootAmount);
+        if(!this.visited) {
+            this.visited = true;
+    
+            Random rand = new Random();
+    
+            //Checks to see if the player gets loot from the room, otherwise the player goes into combat.
+            if(rand.nextDouble() < lootChance){
+                System.out.println("You found... ");
+                if(rand.nextDouble() < .5){
+                    System.out.println("A health potion!");
+                    player.setHealth(0, rand.nextInt(lootAmount));
+                } else{
+                    System.out.println("Gold!");
+                    player.onLoot(rand.nextInt(lootAmount));
+                }
+                
+            //Combat sequence
             } else{
-                player.onLoot(rand.nextInt(lootAmount));
+                Monster monster = new Monster();
+    
+                System.out.println("A " + monster.getMonsterType() + " is in this room!"); 
+                doCombat(player, monster);
+    
             }
-            
-        //Combat sequence
         } else{
-            Monster monster = new Monster();
-
-            System.out.println("A " + monster.getMonsterType() + " is in this room!"); 
-            doCombat(player, monster);
-
+            System.out.println("You've been here already...");
         }
 
     }
