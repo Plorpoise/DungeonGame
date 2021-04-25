@@ -12,8 +12,30 @@ public class Player {
     /* Class of this Player */
     private String playerClass;
 
+    public static final String warriorClass = "Warrior";
+
+    public static final String thiefClass = "Thief";
+
     /* Modifer to loot obtained by this Player */
     private double lootModifier;
+
+    public Player(String pClass){
+
+        playerClass = pClass;
+
+        if (playerClass == warriorClass){
+            //TODO: change hp if needed
+            setHealth(100);
+            setDamage(15);
+        }
+        else{
+            setHealth(70);
+            setDamage(10);
+        }
+
+        setGold(0);
+
+    }
 
     /* Hits the targeted Monster */
     public void attack(Monster target) {
@@ -23,6 +45,11 @@ public class Player {
 	/* Removes health from this Player
     when hit by a Monster */
     public void onHit(int damage) {
+
+        if (){
+            
+        }
+        health -= damage;
 
     }
 

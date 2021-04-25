@@ -10,6 +10,14 @@ public class Monster {
     /* Type of this Monster */
     private String monsterType;
 
+    public static final String orcType = "Orc";
+
+    public Monster(String mType){
+
+        monsterType = mType;
+        
+    }
+
     /* Hits the targeted Player */
     public void attack(Player target) {
 
