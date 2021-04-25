@@ -20,6 +20,7 @@ public class DungeonGame {
 	non-combat related user input. Continues
 	until the Player either wins or loses. */
     public void play() {
+        //TODO: add loop to check for player health
 
     }
 }
