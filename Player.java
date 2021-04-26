@@ -23,13 +23,12 @@ public class Player {
         playerClass = pClass;
 
         if (playerClass == warriorClass){
-            //TODO: change hp if needed
-            setHealth(100);
+            setHealth(0 , 100);
             setDamage(15);
             lootModifier = 1.00;
         }
         else{
-            setHealth(70);
+            setHealth(0 , 70);
             setDamage(10);
             lootModifier = 1.20;
         }
@@ -50,55 +49,43 @@ public class Player {
 	/* Removes health from this Player
     when hit by a Monster */
     public void onHit(int damage) {
-        //TODO: move this to sethealth
-        if ((health - damage) < 0){
-            health = 0;
-        }
-        else{
-            health -= damage;
-        }
+
+        setHealth(damage , 0);
 
     }
 
 	/* Adds health to this Player when healed */
     public void onHeal(int heal) {
-        //TODO: move this to sethealth
-        if(playerClass == warriorClass && health == 100){
-            health = 100;
-        }
-        else if (playerClass == warriorClass && ((health + heal) > 100)){
-            health = 100;
-        }
-        else if (playerClass == thiefClass && health == 70){
-            health = 70;
-        }
-        else if (playerClass == thiefClass && ((health + heal) > 70)){
-            health = 70;
-        }
-        else{
-            health += heal;
-        }
+        setHealth(0, heal);
 
     }
 
 	/* Adds gold to this Player when obtained */
     public void onLoot(int goldAdded) {
-        //TODO: move this to setgold
-        if (playerClass == warriorClass){
-            gold += goldAdded;
-        } 
-        else{
-            goldAdded += goldAdded * 0.2;
-            gold += goldAdded;
-        }
+        setGold((int) (goldAdded * lootModifier));
     }
 
     public int getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
-        this.health += health;
+    public void setHealth(int damage, int health) {
+
+        this.health = this.health - damage;
+        this.health = this.health + health;
+        if(playerClass == warriorClass && (this.health >= 100)){
+            this.health = 100;
+        }
+        else if (playerClass == warriorClass && (this.health < 0)){
+            this.health = 0;
+        }
+        else if (playerClass == thiefClass && (this.health >= 70)){
+            this.health = 70;
+        }
+        else if (playerClass == thiefClass && (this.health < 0)){
+            this.health = 0;
+        }
+
     }
 
     public int getGold() {
