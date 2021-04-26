@@ -9,6 +9,10 @@ public class Player {
     /* Damage this Player inflicts */
     private int damage;
 
+    private int rowPos;
+
+    private int colPos;
+
     /* Class of this Player */
     private String playerClass;
 
@@ -20,6 +24,8 @@ public class Player {
     private double lootModifier;
 
     public Player(String pClass){
+        rowPos = 0;
+        colPos = 0;
         playerClass = pClass;
 
         if (playerClass == warriorClass){
@@ -38,7 +44,6 @@ public class Player {
 
     }
 
-    //TODO: attack monster
     /* Hits the targeted Monster */
     public void attack(Monster target) {
 
@@ -102,5 +107,21 @@ public class Player {
 
     public void setDamage(int damage) {
         this.damage += damage;
+    }
+
+    public void setRowPos(int rowPosition){
+        rowPos = rowPosition;
+    }
+
+    public int getRowPos(){
+        return rowPos;
+    }
+
+    public void setColPos(int colPosition){
+        colPos = colPosition;
+    }
+
+    public int getColPos(){
+        return colPos;
     }
 }

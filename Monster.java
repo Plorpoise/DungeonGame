@@ -57,6 +57,10 @@ public class Monster {
         return health;
     }
 
+    public String getMonsterType(){
+        return monsterType;
+    }
+
     /* Hits the targeted Player */
     public void attack(Player target) {
         Random randomDamage = new Random();
