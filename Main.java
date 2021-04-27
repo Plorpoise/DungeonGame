@@ -2,19 +2,29 @@ import java.util.Scanner;
 
 public class Main {
     /* Entry point of the application */
-    //sssss
     
     public static void main(String[] args) {
-        String consoleInput;
-        boolean correctDSInput = false;
 
-        //TODO: change to non-default
-        DungeonGame dungeonSize = new DungeonGame(10, 10);
+        //checks to see if there is a console input for the dungeon size
+        if(args.length != 2){
 
-        //System.out.println(args[0]);
+            //sets dungeon size to default size
+            DungeonGame startGame = new DungeonGame(10, 10);
 
-        //calls DungeonGame overloaded constructor
-        dungeonSize.play();
+            //runs game code
+            startGame.play();
+        }
+        else{
+
+            //sets dungeon size to console arguments
+            int row = Integer.parseInt(args[0]);
+            int column = Integer.parseInt(args[1]);
+
+            DungeonGame startGame = new DungeonGame(row, column);
+
+            //runs game code.
+            startGame.play();
+        }
          
     }
 }

@@ -9,6 +9,7 @@ public class Room {
     instance has been visited already */
     private boolean visited;
 
+    //indicates wether player inputted proper input
     private boolean properInput;
 
     private int realInput;
@@ -23,9 +24,11 @@ public class Room {
     public void enter(Player player) {
         Random random = new Random();
 
+        //checks to see if player has visited room before
         if (!visited){
             visited = true;
 
+            //generates loot type
             if (random.nextDouble() < lootChance ){
                 System.out.println("You found...");
                 if(random.nextDouble() < 0.5){
@@ -38,6 +41,7 @@ public class Room {
                 }
 
             }
+            //generates random monster
             else{
                 Monster monster = new Monster();
 
@@ -53,29 +57,41 @@ public class Room {
         return this.visited;
     }
 
+    //runs the player combat with the monster
     private boolean playerCombat(Player player , Monster monster){
         Scanner scanner = new Scanner(System.in);
 
+        //makes sure player inputs proper input type
+        properInput = false;
         while (!properInput){
             System.out.println("What's your course of action?\n(1) Fight\n(2) Run");
             String playerInput = scanner.nextLine();
 
             try{
                realInput = Integer.parseInt(playerInput);
-               properInput = true;
             }
             catch(NumberFormatException e){
                 System.out.println("Please choose a course of action.");
             }
+
+            if (realInput != 1 && realInput != 2){
+                System.out.println("Please choose a course of action.");
+            }
+            else{
+                properInput = true;
+            }
         }
 
+        //runs monsters attack method.
         monster.attack(player);
-        System.out.println("Your health is now " + player.getHealth() + "!");
+
+        //checks to see if player died
         if (player.getHealth() == 0){
             System.out.println("You died.");
             return false;
         }
 
+        //checks wether player chose to fight or run
         if( realInput == 1){
             player.attack(monster);
 
@@ -89,6 +105,7 @@ public class Room {
             return true;
         }
     
+        //prints player's new health and returns player and monster objects.
         System.out.println("Your health is now " + player.getHealth() + "\nMonster health: " + monster.getHealth());
         return playerCombat(player , monster);
 

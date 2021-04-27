@@ -18,14 +18,17 @@ public class Monster {
 
     public static final String denekeType = "Deneke";
 
+    //used for random monster generation
     private String[] monsterArray = {"Goblin" , "Zombie" , "Orc" , "Deneke"};
 
     public Monster(){
 
         Random random = new Random();
 
+        //generates random monster from array list
         monsterType = monsterArray[random.nextInt(monsterArray.length)];
 
+        //sets monster health and damage
         if(monsterType == goblinType){
         
             damage = 10;
@@ -50,13 +53,14 @@ public class Monster {
             health = 55;
 
         }
-        
     }
 
+    //accessor for monster health
     public int getHealth(){
         return health;
     }
 
+    //accessor for monster type
     public String getMonsterType(){
         return monsterType;
     }

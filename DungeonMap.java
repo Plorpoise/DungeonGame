@@ -42,10 +42,12 @@ public class DungeonMap {
         }
         printTopBottom();
 
+        //prints player gold and health
         System.out.println("GOLD: " + player.getGold());
         System.out.println("HEALTH: " + player.getHealth());
     }
 
+    //prints top and bottom of the map
     public void printTopBottom(){
         System.out.print("+");
         for(int i = 0; i < rooms[0].length; i++){
@@ -54,11 +56,13 @@ public class DungeonMap {
         System.out.println("+");
     }
 	
+    //changes player position in dungeon
     public void move(Player player, int rowChange, int colChange){
         player.setRowPos(player.getRowPos() + rowChange);
         player.setColPos(player.getColPos() + colChange);
 
-        if (player.getRowPos() < 0 || player.getRowPos() > rooms.length || player.getColPos() < 0 || player.getColPos > rooms[0].length){
+        //checks to see if player ran into a wall
+        if (player.getRowPos() < 0 || player.getRowPos() > rooms.length || player.getColPos() < 0 || player.getColPos() > rooms[0].length){
             System.out.println("You run into the wall.");
             player.setRowPos(player.getRowPos() - rowChange);
             player.setColPos(player.getColPos() - colChange);
@@ -68,8 +72,6 @@ public class DungeonMap {
                 System.out.println("You notice this place looks familiar.");
             }
             else{
-                player.setRowPos(player.getRowPos() + rowChange);
-                player.setColPos(player.getColPos() + colChange);
                 rooms[player.getRowPos()][player.getColPos()].enter(player);
             }
         }

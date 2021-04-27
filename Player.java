@@ -23,6 +23,7 @@ public class Player {
     /* Modifer to loot obtained by this Player */
     private double lootModifier;
 
+    //sets base settings for warrior class and thief class
     public Player(String pClass){
         rowPos = 0;
         colPos = 0;
@@ -70,10 +71,12 @@ public class Player {
         setGold((int) (goldAdded * lootModifier));
     }
 
+    //accessor for players health
     public int getHealth() {
         return health;
     }
 
+    //sets player health based on damage and health conditions
     public void setHealth(int damage, int health) {
 
         this.health = this.health - damage;
@@ -93,34 +96,42 @@ public class Player {
 
     }
 
+    //accessor for player gold
     public int getGold() {
         return gold;
     }
 
+    //sets player gold
     public void setGold(int gold) {
         this.gold += gold;
     }
 
+    //accessor for player damage
     public int getDamage() {
         return damage;
     }
 
+    //sets player damage
     public void setDamage(int damage) {
         this.damage += damage;
     }
 
+    //sets player horizontal position
     public void setRowPos(int rowPosition){
         rowPos = rowPosition;
     }
 
+    //accessor for player horizontal position
     public int getRowPos(){
         return rowPos;
     }
 
+    //sets player vertical position
     public void setColPos(int colPosition){
         colPos = colPosition;
     }
 
+    //accessor for player vertical position
     public int getColPos(){
         return colPos;
     }
