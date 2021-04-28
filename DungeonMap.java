@@ -64,7 +64,7 @@ public class DungeonMap {
         player.setColPos(player.getColPos() + colChange);
 
         //checks to see if player ran into a wall
-        if (player.getRowPos() < 0 || player.getRowPos() > rooms.length || player.getColPos() < 0 || player.getColPos() > rooms[0].length){
+        if (player.getRowPos() < 0 || player.getRowPos() >= rooms.length || player.getColPos() < 0 || player.getColPos() >= rooms[0].length){
             System.out.println("You run into the wall.");
             player.setRowPos(player.getRowPos() - rowChange);
             player.setColPos(player.getColPos() - colChange);
