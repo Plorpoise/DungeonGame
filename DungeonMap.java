@@ -29,7 +29,7 @@ public class DungeonMap {
             System.out.print("|");
             for(int j = 0; j < rooms[0].length; j++){
                 if(player.getRowPos() == i && player.getColPos() == j){
-                    System.out.print("P");
+                    System.out.print(player.getClass().charAt);
                 }
                 else if(rooms[i][j].hasVisited()){
                     System.out.print("*");

@@ -19,12 +19,18 @@ public class Main {
             //sets dungeon size to console arguments
             int row = Integer.parseInt(args[0]);
             int column = Integer.parseInt(args[1]);
+            if(row < 1 || column < 1){
+                System.out.println("No negative space dungeons, we will assume you wanted a 1x1 dungeon :)");
+                row = 1;
+                column = 1;
+            }
 
             DungeonGame startGame = new DungeonGame(row, column);
 
             //runs game code.
             startGame.play();
         }
+       
          
     }
 }

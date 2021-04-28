@@ -16,6 +16,14 @@ public class Player {
     /* Class of this Player */
     private String playerClass;
 
+    public String getPlayerClass() {
+        return playerClass;
+    }
+
+    public void setPlayerClass(String playerClass) {
+        this.playerClass = playerClass;
+    }
+
     public static final String warriorClass = "Warrior";
 
     public static final String thiefClass = "Thief";
@@ -45,38 +53,39 @@ public class Player {
 
     }
 
+
     /* Hits the targeted Monster */
     public void attack(Monster target) {
         target.onHit(this.damage);
     }
 
-    // Constructor for player class (Warrior or theif)
+    // // Constructor for player class (Warrior or theif)
     // public Player(String playerClass) {
     //     this.colPos = 0;
     //     this.rowPos = 0;
     //     this.playerClass = playerClass;
-    //     this.gold = 0;
-
+        this.gold = 0;
+ //
     //     if (this.playerClass.toLowerCase().equals("warrior")) {
     //         this.health = 100;
     //         this.damage = 15;
-    //         this.lootModifier = 1.00;
-
+            this.lootModifier = 1.00;
+// 
     //     } else {
     //         this.health = 70;
     //         this.damage = 10;
-    //         this.lootModifier = 1.20;
-
-    //     }
-
-    //     target.onHit(damage);
-
-    // }
+            this.lootModifier = 1.20;
+ //
+        }
+// 
+        target.onHit(damage);
+ //
+    }
 
     /*
      * Removes health from this Player when hit by a Monster
      */
-    public void onHit(int damage) {
+
 
         setHealth(damage , 0);
 
@@ -93,7 +102,7 @@ public class Player {
         setGold((int) (goldAdded * lootModifier));
     }
 
-    //accessor for players health
+
     public int getHealth() {
         return this.health;
     }
@@ -153,10 +162,8 @@ public class Player {
         colPos = colPosition;
     }
 
-    //accessor for player vertical position
-    public int getColPos(){
-        return colPos;
-    }
+ 
+
     
         
 }
