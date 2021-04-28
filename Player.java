@@ -1,6 +1,7 @@
 
+
 public class Player {
-    /* Current health of this Player */
+	/* Current health of this Player */
     private int health;
 
     /* Current gold of this Player */
@@ -16,14 +17,6 @@ public class Player {
     /* Class of this Player */
     private String playerClass;
 
-    public String getPlayerClass() {
-        return playerClass;
-    }
-
-    public void setPlayerClass(String playerClass) {
-        this.playerClass = playerClass;
-    }
-
     public static final String warriorClass = "Warrior";
 
     public static final String thiefClass = "Thief";
@@ -31,7 +24,6 @@ public class Player {
     /* Modifer to loot obtained by this Player */
     private double lootModifier;
 
-<<<<<<< HEAD
     //sets base settings for warrior class and thief class
     public Player(String pClass){
         rowPos = 0;
@@ -54,47 +46,16 @@ public class Player {
 
     }
 
-
-=======
->>>>>>> parent of 6742a92... Implemented good chunk of DungeonMap, updated player and room classes as well.
     /* Hits the targeted Monster */
     public void attack(Monster target) {
-        target.onHit(this.damage);
-    }
 
-<<<<<<< HEAD
-    // // Constructor for player class (Warrior or theif)
-    // public Player(String playerClass) {
-    //     this.colPos = 0;
-    //     this.rowPos = 0;
-    //     this.playerClass = playerClass;
-=======
-    // Constructor for player class (Warrior or theif)
-    public Player(String playerClass) {
-        this.playerClass = playerClass;
->>>>>>> parent of 6742a92... Implemented good chunk of DungeonMap, updated player and room classes as well.
-        this.gold = 0;
- //
-    //     if (this.playerClass.toLowerCase().equals("warrior")) {
-    //         this.health = 100;
-    //         this.damage = 15;
-            this.lootModifier = 1.00;
-// 
-    //     } else {
-    //         this.health = 70;
-    //         this.damage = 10;
-            this.lootModifier = 1.20;
- //
-        }
-// 
         target.onHit(damage);
- //
+
     }
 
-    /*
-     * Removes health from this Player when hit by a Monster
-     */
-
+	/* Removes health from this Player
+    when hit by a Monster */
+    public void onHit(int damage) {
 
         setHealth(damage , 0);
 
@@ -111,9 +72,9 @@ public class Player {
         setGold((int) (goldAdded * lootModifier));
     }
 
-
+    //accessor for players health
     public int getHealth() {
-        return this.health;
+        return health;
     }
 
     //sets player health based on damage and health conditions
@@ -145,7 +106,6 @@ public class Player {
     public void setGold(int gold) {
         this.gold += gold;
     }
-<<<<<<< HEAD
 
     //accessor for player damage
     public int getDamage() {
@@ -172,10 +132,18 @@ public class Player {
         colPos = colPosition;
     }
 
- 
+    //accessor for player vertical position
+    public int getColPos(){
+        return colPos;
+    }
+
+    public String getPlayerClass() {
+        return playerClass;
+    }
+
+    public void setPlayerClass(String playerClass) {
+        this.playerClass = playerClass;
+    }
 
     
-=======
->>>>>>> parent of 6742a92... Implemented good chunk of DungeonMap, updated player and room classes as well.
-        
 }
