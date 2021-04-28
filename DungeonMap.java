@@ -1,4 +1,3 @@
-
 /* Contains the Rooms in the dungeon 
 and logic for Player movement */
 public class DungeonMap {
@@ -10,8 +9,8 @@ public class DungeonMap {
 
     /* Initializes the rooms and shared Player reference */
     public DungeonMap (int rows, int columns, Player player){
+        this.player = player;
 
-<<<<<<< HEAD
         rooms = new Room[rows][columns];
 
         for(int i = 0; i < rooms.length; i ++){
@@ -19,20 +18,20 @@ public class DungeonMap {
                 this.rooms[i][j] = new Room();
             }
         }
-=======
->>>>>>> parent of 6742a92... Implemented good chunk of DungeonMap, updated player and room classes as well.
+        
+        rooms[0][0].setVisited();
+
     }
 
     /* Displays the dungeon's rooms, walls,
     and player's current location */
     public void print() {
-<<<<<<< HEAD
         printTopBottom();
         for(int i = 0; i < rooms.length; i++){
             System.out.print("|");
             for(int j = 0; j < rooms[0].length; j++){
                 if(player.getRowPos() == i && player.getColPos() == j){
-                    System.out.print(player.getClass().charAt);
+                    System.out.print(player.getPlayerClass().charAt(0));
                 }
                 else if(rooms[i][j].hasVisited()){
                     System.out.print("*");
@@ -51,7 +50,7 @@ public class DungeonMap {
     }
 
     //prints top and bottom of the map
-    public void printTopBottom(){
+    private void printTopBottom(){
         System.out.print("+");
         for(int i = 0; i < rooms[0].length; i++){
             System.out.print("-");
@@ -79,10 +78,4 @@ public class DungeonMap {
             }
         }
     }
-=======
-
-    }
-	
-	//TODO: method(s) to move player
->>>>>>> parent of 6742a92... Implemented good chunk of DungeonMap, updated player and room classes as well.
 }
