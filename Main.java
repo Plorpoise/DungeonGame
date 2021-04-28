@@ -4,6 +4,7 @@ public class Main {
     /* Entry point of the application */
     
     public static void main(String[] args) {
+<<<<<<< HEAD
 
         //checks to see if there is a console input for the dungeon size
         if(args.length != 2){
@@ -32,5 +33,13 @@ public class Main {
         }
        
          
+=======
+        Monster monster = new Monster();
+        Player player = new Player("warrior");
+
+        Room room = new Room();
+
+        room.enter(player);
+>>>>>>> parent of 6742a92... Implemented good chunk of DungeonMap, updated player and room classes as well.
     }
 }

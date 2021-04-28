@@ -10,8 +10,8 @@ public class DungeonMap {
 
     /* Initializes the rooms and shared Player reference */
     public DungeonMap (int rows, int columns, Player player){
-        this.player = player;
 
+<<<<<<< HEAD
         rooms = new Room[rows][columns];
 
         for(int i = 0; i < rooms.length; i ++){
@@ -19,11 +19,14 @@ public class DungeonMap {
                 this.rooms[i][j] = new Room();
             }
         }
+=======
+>>>>>>> parent of 6742a92... Implemented good chunk of DungeonMap, updated player and room classes as well.
     }
 
     /* Displays the dungeon's rooms, walls,
     and player's current location */
     public void print() {
+<<<<<<< HEAD
         printTopBottom();
         for(int i = 0; i < rooms.length; i++){
             System.out.print("|");
@@ -76,4 +79,10 @@ public class DungeonMap {
             }
         }
     }
+=======
+
+    }
+	
+	//TODO: method(s) to move player
+>>>>>>> parent of 6742a92... Implemented good chunk of DungeonMap, updated player and room classes as well.
 }

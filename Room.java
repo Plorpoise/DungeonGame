@@ -22,6 +22,7 @@ public class Room {
 	enters this Room. Includes combat resolution
 	and obtaining loot. */
     public void enter(Player player) {
+<<<<<<< HEAD
         Random random = new Random();
 
         //checks to see if player has visited room before
@@ -48,6 +49,27 @@ public class Room {
                 System.out.println("You come face to face with a " + monster.getMonsterType() + "!");
                 playerCombat(player , monster);
             }
+=======
+        this.visited = true;
+
+        Random rand = new Random();
+
+        //Checks to see if the player gets loot from the room, otherwise the player goes into combat.
+        if(rand.nextDouble() < lootChance){
+            if(rand.nextDouble() < .5){
+                player.setHealth(0, lootAmount);
+            } else{
+                player.onLoot(rand.nextInt(lootAmount));
+            }
+            
+        //Combat sequence
+        } else{
+            Monster monster = new Monster();
+
+            System.out.println("A " + monster.getMonsterType() + " is in this room!"); 
+            doCombat(player, monster);
+
+>>>>>>> parent of 6742a92... Implemented good chunk of DungeonMap, updated player and room classes as well.
         }
 
     }

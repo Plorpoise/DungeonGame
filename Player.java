@@ -31,6 +31,7 @@ public class Player {
     /* Modifer to loot obtained by this Player */
     private double lootModifier;
 
+<<<<<<< HEAD
     //sets base settings for warrior class and thief class
     public Player(String pClass){
         rowPos = 0;
@@ -54,16 +55,24 @@ public class Player {
     }
 
 
+=======
+>>>>>>> parent of 6742a92... Implemented good chunk of DungeonMap, updated player and room classes as well.
     /* Hits the targeted Monster */
     public void attack(Monster target) {
         target.onHit(this.damage);
     }
 
+<<<<<<< HEAD
     // // Constructor for player class (Warrior or theif)
     // public Player(String playerClass) {
     //     this.colPos = 0;
     //     this.rowPos = 0;
     //     this.playerClass = playerClass;
+=======
+    // Constructor for player class (Warrior or theif)
+    public Player(String playerClass) {
+        this.playerClass = playerClass;
+>>>>>>> parent of 6742a92... Implemented good chunk of DungeonMap, updated player and room classes as well.
         this.gold = 0;
  //
     //     if (this.playerClass.toLowerCase().equals("warrior")) {
@@ -136,6 +145,7 @@ public class Player {
     public void setGold(int gold) {
         this.gold += gold;
     }
+<<<<<<< HEAD
 
     //accessor for player damage
     public int getDamage() {
@@ -165,5 +175,7 @@ public class Player {
  
 
     
+=======
+>>>>>>> parent of 6742a92... Implemented good chunk of DungeonMap, updated player and room classes as well.
         
 }

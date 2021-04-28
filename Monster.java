@@ -64,7 +64,7 @@ public class Monster {
     public static final String denekeType = "Deneke";
 
     //used for random monster generation
-    private String[] monsterArray = {"Goblin" , "Zombie" , "Orc" , "Deneke"};
+    public String[] monsterArray = {"Goblin" , "Zombie" , "Orc" , "Deneke"};
 
     public Monster(){
 
