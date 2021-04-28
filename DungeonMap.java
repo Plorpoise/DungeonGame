@@ -12,9 +12,9 @@ public class DungeonMap {
     public DungeonMap (int rows, int columns, Player player){
         this.player = player;
 
-        this.rooms = new Room[rows][columns];
+        rooms = new Room[rows][columns];
 
-        for(int i = 0; i < rooms.length; i++){
+        for(int i = 0; i < rooms.length; i ++){
             for(int j = 0; j < rooms[i].length; j++){
                 this.rooms[i][j] = new Room();
             }
@@ -24,29 +24,31 @@ public class DungeonMap {
     /* Displays the dungeon's rooms, walls,
     and player's current location */
     public void print() {
-        printTop();
+        printTopBottom();
         for(int i = 0; i < rooms.length; i++){
             System.out.print("|");
             for(int j = 0; j < rooms[0].length; j++){
                 if(player.getRowPos() == i && player.getColPos() == j){
                     System.out.print("P");
-                } else if(rooms[i][j].hasVisited()){
+                }
+                else if(rooms[i][j].hasVisited()){
                     System.out.print("*");
-                } else{
+                }
+                else{
                     System.out.print(" ");
                 }
-                
             }
             System.out.println("|");
         }
-        printTop();
+        printTopBottom();
 
+        //prints player gold and health
         System.out.println("GOLD: " + player.getGold());
         System.out.println("HEALTH: " + player.getHealth());
-
     }
 
-    private void printTop() {
+    //prints top and bottom of the map
+    public void printTopBottom(){
         System.out.print("+");
         for(int i = 0; i < rooms[0].length; i++){
             System.out.print("-");
@@ -54,17 +56,24 @@ public class DungeonMap {
         System.out.println("+");
     }
 	
-	//TODO: method(s) to move player
-
+    //changes player position in dungeon
     public void move(Player player, int rowChange, int colChange){
         player.setRowPos(player.getRowPos() + rowChange);
         player.setColPos(player.getColPos() + colChange);
 
-        if(player.getRowPos() < 0 || player.getRowPos() > rooms.length || player.getColPos() < 0 || player.getColPos() > rooms[0].length){
-            System.out.println("You can't move there!");
+        //checks to see if player ran into a wall
+        if (player.getRowPos() < 0 || player.getRowPos() > rooms.length || player.getColPos() < 0 || player.getColPos() > rooms[0].length){
+            System.out.println("You run into the wall.");
             player.setRowPos(player.getRowPos() - rowChange);
             player.setColPos(player.getColPos() - colChange);
         }
-
+        else{
+            if(rooms[player.getRowPos()][player.getColPos()].hasVisited() == true){
+                System.out.println("You notice this place looks familiar.");
+            }
+            else{
+                rooms[player.getRowPos()][player.getColPos()].enter(player);
+            }
+        }
     }
 }

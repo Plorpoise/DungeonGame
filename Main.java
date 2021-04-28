@@ -1,18 +1,30 @@
+import java.util.Scanner;
+
 public class Main {
     /* Entry point of the application */
-    //sssss
     
     public static void main(String[] args) {
-        // Monster monster = new Monster();
-        Player player = new Player("warrior");
 
-        // Room room = new Room();
+        //checks to see if there is a console input for the dungeon size
+        if(args.length != 2){
 
-        // room.enter(player);
+            //sets dungeon size to default size
+            DungeonGame startGame = new DungeonGame(10, 10);
 
+            //runs game code
+            startGame.play();
+        }
+        else{
 
-        DungeonMap map = new DungeonMap(10, 20, player);
+            //sets dungeon size to console arguments
+            int row = Integer.parseInt(args[0]);
+            int column = Integer.parseInt(args[1]);
 
-        map.print();
+            DungeonGame startGame = new DungeonGame(row, column);
+
+            //runs game code.
+            startGame.play();
+        }
+         
     }
 }
